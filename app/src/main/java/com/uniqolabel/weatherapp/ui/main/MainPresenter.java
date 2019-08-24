@@ -1,5 +1,6 @@
 package com.uniqolabel.weatherapp.ui.main;
 
+import android.location.Location;
 import android.util.Log;
 
 import com.uniqolabel.weatherapp.base.BasePresenter;
@@ -16,7 +17,7 @@ import retrofit2.Response;
 public class MainPresenter extends BasePresenter<MainContract.View> implements MainContract.Presenter {
 
     @Override
-    public void getWeatherForecast() {
+    public void getWeatherForecast(Location location) {
         ApiService service = ApiClient.getRetrofitInstance().create(ApiService.class);
         final Call<ForecastResponse> request = service.getForecast(Constants.API_KEY, 12.97, 77.59, "[currently,minutely,hourly,alerts,flags]");
         //noinspection NullableProblems

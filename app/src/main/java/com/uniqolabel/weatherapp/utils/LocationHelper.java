@@ -169,15 +169,11 @@ public class LocationHelper extends LocationCallback {
 //        }
 
         // Deliver to listener
-        if (locationResult.getLastLocation() != null && locationRequest.getNumUpdates() <= 1) {
-            setLastFetchedLocationTime(SystemClock.currentThreadTimeMillis());
+        if (locationResult.getLastLocation() != null) {
             currentLocation = locationResult.getLastLocation();
+            isLocationAvailable.setValue(true);
 //            listener.onLocationReceived(currentLocation.getValue());
             stopLocationUpdates();
-        }
-
-        if (locationRequest.getNumUpdates() > 1) {
-            checkLocationSettings();
         }
     }
 
@@ -256,7 +252,6 @@ public class LocationHelper extends LocationCallback {
         intent.setData(uri);
         activity.startActivity(intent);
     }
-
 
 
     public void setPriority(int priority) {
