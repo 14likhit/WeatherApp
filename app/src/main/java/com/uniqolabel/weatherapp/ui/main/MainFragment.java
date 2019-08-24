@@ -15,4 +15,10 @@ import com.uniqolabel.weatherapp.base.BaseFragment;
 
 public class MainFragment extends BaseFragment {
 
+    public static final String TAG = "MainFragment";
+
+    public static MainFragment newInstance() {
+        return new MainFragment();
+    }
+
 }
