@@ -7,7 +7,7 @@ public class ApiClient {
 
     private static Retrofit retrofit;
 
-    private static final String base_url = "http://api.openweathermap.org/data/2.5/forecast";
+    private static final String base_url = "https://api.darksky.net/";
 
     public static Retrofit getRetrofitInstance() {
         if (retrofit == null) {

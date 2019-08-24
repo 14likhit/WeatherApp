@@ -13,6 +13,7 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        setupToolbar("Home", false);
         replaceFragment(MainFragment.newInstance(), MainFragment.TAG, false);
 
     }

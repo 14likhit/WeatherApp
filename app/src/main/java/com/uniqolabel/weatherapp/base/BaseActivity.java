@@ -10,8 +10,9 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.likhit.chabi.R;
-import com.likhit.chabi.utils.Utils;
+import com.uniqolabel.weatherapp.R;
+import com.uniqolabel.weatherapp.utils.Utils;
+
 
 public abstract class BaseActivity extends AppCompatActivity implements BaseView {
 

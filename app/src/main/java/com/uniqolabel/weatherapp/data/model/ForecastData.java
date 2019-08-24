@@ -92,7 +92,7 @@ public class ForecastData {
     private Integer uvIndexTime;
 
     @SerializedName("visibility")
-    private Integer visibility;
+    private Double visibility;
 
     @SerializedName("ozone")
     private Double ozone;
@@ -353,11 +353,11 @@ public class ForecastData {
         this.uvIndexTime = uvIndexTime;
     }
 
-    public Integer getVisibility() {
+    public Double getVisibility() {
         return visibility;
     }
 
-    public void setVisibility(Integer visibility) {
+    public void setVisibility(Double visibility) {
         this.visibility = visibility;
     }
 
