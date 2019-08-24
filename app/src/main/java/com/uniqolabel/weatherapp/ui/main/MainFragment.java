@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.uniqolabel.weatherapp.R;
 import com.uniqolabel.weatherapp.base.BaseFragment;
 import com.uniqolabel.weatherapp.data.model.ForecastResponse;
 import com.uniqolabel.weatherapp.databinding.FragmentMainBinding;
@@ -72,10 +73,15 @@ public class MainFragment extends BaseFragment implements MainContract.View {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         locationHelper.getIsLocationAvailable().observe(this, aBoolean -> {
-            if (aBoolean) {
+            if (aBoolean && Utils.isNetworkAvailable(getBaseActivity())) {
                 location = locationHelper.getCurrentLocation();
                 presenter.getWeatherForecast(location);
             } else {
+                if (!Utils.isNetworkAvailable(getBaseActivity())) {
+                    showMessage(getString(R.string.network_error_string));
+                } else {
+                    showMessage(getString(R.string.location_error_string));
+                }
                 binding.rootContainer.setVisibility(View.GONE);
                 binding.retryLayout.setVisibility(View.VISIBLE);
             }
@@ -121,6 +127,7 @@ public class MainFragment extends BaseFragment implements MainContract.View {
             binding.day8.setText(Utils.getDate(forecastResponse.getDaily().getData().get(7).getTime(), forecastResponse.getTimezone()));
             binding.rootContainer.setVisibility(View.VISIBLE);
         } else {
+            showMessage(getString(R.string.generic_error_string));
             binding.rootContainer.setVisibility(View.GONE);
             binding.retryLayout.setVisibility(View.VISIBLE);
         }

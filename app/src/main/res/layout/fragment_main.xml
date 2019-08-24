@@ -232,7 +232,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
                         android:layout_gravity="bottom"
-                        android:text="25/08/2019"
+                        android:text="@string/sample_date"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/twenty_four_sp_text_size" />
 
@@ -243,7 +243,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_gravity="bottom"
-                        android:text="26/08/2019"
+                        android:text="@string/sample_date"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/twenty_four_sp_text_size" />
 
@@ -261,7 +261,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
                         android:layout_gravity="bottom"
-                        android:text="27/08/2019"
+                        android:text="@string/sample_date"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/twenty_four_sp_text_size" />
 
@@ -272,7 +272,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_gravity="bottom"
-                        android:text="28/08/2019"
+                        android:text="@string/sample_date"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/twenty_four_sp_text_size" />
 
@@ -290,7 +290,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
                         android:layout_gravity="bottom"
-                        android:text="29/08/2019"
+                        android:text="@string/sample_date"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/twenty_four_sp_text_size" />
 
@@ -301,7 +301,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_gravity="bottom"
-                        android:text="30/08/2019"
+                        android:text="@string/sample_date"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/twenty_four_sp_text_size" />
 
@@ -319,7 +319,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentLeft="true"
                         android:layout_gravity="bottom"
-                        android:text="31/08/2019"
+                        android:text="@string/sample_date"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/twenty_four_sp_text_size" />
 
@@ -330,7 +330,7 @@
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
                         android:layout_gravity="bottom"
-                        android:text="01/09/2019"
+                        android:text="@string/sample_date"
                         android:textColor="@android:color/white"
                         android:textSize="@dimen/twenty_four_sp_text_size" />
 
@@ -357,10 +357,10 @@
                 <Button
                     android:id="@+id/btn_retry"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
+                    android:layout_height="0dp"
                     android:layout_gravity="end"
                     android:layout_weight="2"
-                    android:text="Retry" />
+                    android:text="@string/retry" />
 
             </LinearLayout>
 

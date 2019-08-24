@@ -2,6 +2,8 @@ package com.uniqolabel.weatherapp.utils;
 
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 
 import androidx.core.content.ContextCompat;
 
@@ -36,6 +38,13 @@ public class Utils {
         DateFormat format = new SimpleDateFormat("HH:mm:ss");
         format.setTimeZone(TimeZone.getTimeZone(timezone));
         return format.format(date);
+    }
+
+    public static boolean isNetworkAvailable(Context context) {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
     }
 
 }

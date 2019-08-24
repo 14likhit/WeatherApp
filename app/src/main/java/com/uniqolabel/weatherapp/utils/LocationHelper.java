@@ -8,15 +8,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
-import android.location.Address;
 import android.location.Location;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Bundle;
-import android.os.Handler;
 import android.os.Looper;
-import android.os.ResultReceiver;
-import android.os.SystemClock;
 import android.provider.Settings;
 import android.util.Log;
 import android.widget.Toast;
@@ -26,7 +21,6 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.common.api.ResolvableApiException;
-import com.google.android.gms.common.logging.Logger;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationAvailability;
 import com.google.android.gms.location.LocationCallback;
@@ -39,8 +33,6 @@ import com.google.android.gms.location.LocationSettingsStatusCodes;
 import com.google.android.gms.location.SettingsClient;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.gson.Gson;
-import com.uniqolabel.weatherapp.R;
 
 
 public class LocationHelper extends LocationCallback {
@@ -64,8 +56,6 @@ public class LocationHelper extends LocationCallback {
     private boolean isLocationRequestActive;
     private MutableLiveData<Boolean> isLocationAvailable = new MutableLiveData<>();
 
-    private Address address = null;
-    private Gson gson = new Gson();
     private Location currentLocation;
 
     private Long lastFetchedLocationTime = null;
@@ -165,51 +155,23 @@ public class LocationHelper extends LocationCallback {
     @Override
     public void onLocationResult(LocationResult locationResult) {
         Log.i(TAG, "onLocationResult: Last=" + locationResult.getLastLocation().toString());
-//        for (Location location : locationResult.getLocations()) {
-//            Logger.i(TAG, "onLocationResult: " + location.toString());
-//        }
 
         // Deliver to listener
         if (locationResult.getLastLocation() != null) {
             currentLocation = locationResult.getLastLocation();
             isLocationAvailable.setValue(true);
-//            listener.onLocationReceived(currentLocation.getValue());
             stopLocationUpdates();
         }
     }
 
     @Override
     public void onLocationAvailability(LocationAvailability locationAvailability) {
-//        Logger.d(TAG, "Location availability: " + locationAvailability.isLocationAvailable());
         if (!locationAvailability.isLocationAvailable()) {
             isLocationAvailable.setValue(false);
             currentLocation = null;
-//            listener.onLocationNotAvailable();
         }
     }
 
-    @SuppressLint("MissingPermission")
-    public void getLastLocation() {
-        fusedLocationClient.getLastLocation()
-                .addOnSuccessListener(activity, new OnSuccessListener<Location>() {
-                    @Override
-                    public void onSuccess(Location location) {
-                        Log.i(TAG, "Got Last Location: " + location);
-                        if (location != null) {
-                            LocationHelper.this.setLastFetchedLocationTime(SystemClock.currentThreadTimeMillis());
-                            currentLocation = location;
-                            LocationHelper.this.stopLocationUpdates();
-//                            listener.onLocationReceived(currentLocation.getValue());
-                        }
-                    }
-                })
-                .addOnFailureListener(activity, new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        LocationHelper.this.startLocationUpdates();
-                    }
-                });
-    }
 
     public void stopLocationUpdates() {
         if (isLocationRequestActive) {
@@ -275,19 +237,5 @@ public class LocationHelper extends LocationCallback {
         return isLocationAvailable;
     }
 
-    public String getAddress() {
-        return address != null ? gson.toJson(address) : null;
-    }
-
-    public void setActivity(Activity activity) {
-        this.activity = activity;
-    }
-
-    public Long getLastFetchedLocationTime() {
-        return lastFetchedLocationTime;
-    }
-
-    private void setLastFetchedLocationTime(Long lastFetchedLocationTime) {
-        this.lastFetchedLocationTime = lastFetchedLocationTime;
-    }
 }
+
