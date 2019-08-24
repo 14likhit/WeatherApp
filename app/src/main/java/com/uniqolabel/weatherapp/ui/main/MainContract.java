@@ -1,6 +1,7 @@
 package com.uniqolabel.weatherapp.ui.main;
 
 import com.uniqolabel.weatherapp.base.BaseView;
+import com.uniqolabel.weatherapp.data.model.ForecastResponse;
 
 public interface MainContract {
 
@@ -9,7 +10,7 @@ public interface MainContract {
     }
 
     interface View extends BaseView {
-        void onWeatherForecastReceived();
+        void onWeatherForecastReceived(ForecastResponse forecastResponse);
     }
 
 }

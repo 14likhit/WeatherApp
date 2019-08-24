@@ -19,15 +19,20 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
     public void getWeatherForecast() {
         ApiService service = ApiClient.getRetrofitInstance().create(ApiService.class);
         final Call<ForecastResponse> request = service.getForecast(Constants.API_KEY, 12.97, 77.59, "[currently,minutely,hourly,alerts,flags]");
+        //noinspection NullableProblems
         request.enqueue(new Callback<ForecastResponse>() {
             @Override
             public void onResponse(Call<ForecastResponse> call, Response<ForecastResponse> response) {
                 Log.e("API", response.body().toString());
+                if (response.body() != null) {
+                    getView().onWeatherForecastReceived(response.body());
+                }
             }
 
             @Override
             public void onFailure(Call<ForecastResponse> call, Throwable t) {
                 Log.e("API", t.getMessage());
+                getView().showMessage("Unable to get Forecast");
             }
         });
     }

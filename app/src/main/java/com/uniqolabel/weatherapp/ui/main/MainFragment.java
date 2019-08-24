@@ -1,5 +1,6 @@
 package com.uniqolabel.weatherapp.ui.main;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -14,6 +15,7 @@ import android.view.ViewGroup;
 
 import com.uniqolabel.weatherapp.R;
 import com.uniqolabel.weatherapp.base.BaseFragment;
+import com.uniqolabel.weatherapp.data.model.ForecastResponse;
 import com.uniqolabel.weatherapp.databinding.FragmentMainBinding;
 
 public class MainFragment extends BaseFragment implements MainContract.View {
@@ -59,8 +61,13 @@ public class MainFragment extends BaseFragment implements MainContract.View {
         presenter.getWeatherForecast();
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
-    public void onWeatherForecastReceived() {
-
+    public void onWeatherForecastReceived(ForecastResponse forecastResponse) {
+        binding.latitude.setText(forecastResponse.getLatitude().toString());
+        binding.longitude.setText(forecastResponse.getLongitude().toString());
+        binding.timezone.setText(forecastResponse.getTimezone());
+        binding.summary.setText(forecastResponse.getDaily().getSummary());
+        binding.rootContainer.setVisibility(View.VISIBLE);
     }
 }
