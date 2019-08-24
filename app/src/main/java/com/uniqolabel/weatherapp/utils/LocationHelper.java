@@ -139,6 +139,7 @@ public class LocationHelper extends LocationCallback {
                     @Override
                     public void onFailure(@NonNull Exception e) {
                         int statusCode = ((ApiException) e).getStatusCode();
+                        isLocationAvailable.setValue(false);
                         switch (statusCode) {
                             case LocationSettingsStatusCodes.RESOLUTION_REQUIRED:
                                 try {
@@ -180,7 +181,7 @@ public class LocationHelper extends LocationCallback {
     @Override
     public void onLocationAvailability(LocationAvailability locationAvailability) {
 //        Logger.d(TAG, "Location availability: " + locationAvailability.isLocationAvailable());
-        if (!locationAvailability.isLocationAvailable() && locationRequest.getNumUpdates() > 1) {
+        if (!locationAvailability.isLocationAvailable()) {
             isLocationAvailable.setValue(false);
             currentLocation = null;
 //            listener.onLocationNotAvailable();
