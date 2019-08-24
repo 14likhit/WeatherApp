@@ -24,10 +24,17 @@ public class Utils {
         return ContextCompat.checkSelfPermission(context, permission) == PackageManager.PERMISSION_GRANTED;
     }
 
-    public static String getDate(Long timeMillis) {
-        Date date = new Date(timeMillis*1000);
+    public static String getDate(Long timeMillis, String timezone) {
+        Date date = new Date(timeMillis * 1000);
         DateFormat format = new SimpleDateFormat("dd/MM/yyyy");
-        format.setTimeZone(TimeZone.getTimeZone("Asia/Kolkata"));
+        format.setTimeZone(TimeZone.getTimeZone(timezone));
+        return format.format(date);
+    }
+
+    public static String getTime(Long timeMillis, String timezone) {
+        Date date = new Date(timeMillis * 1000);
+        DateFormat format = new SimpleDateFormat("HH:mm:ss");
+        format.setTimeZone(TimeZone.getTimeZone(timezone));
         return format.format(date);
     }
 

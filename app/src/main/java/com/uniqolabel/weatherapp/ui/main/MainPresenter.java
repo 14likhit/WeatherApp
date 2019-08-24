@@ -19,7 +19,7 @@ public class MainPresenter extends BasePresenter<MainContract.View> implements M
     @Override
     public void getWeatherForecast(Location location) {
         ApiService service = ApiClient.getRetrofitInstance().create(ApiService.class);
-        final Call<ForecastResponse> request = service.getForecast(Constants.API_KEY, 12.97, 77.59, "[currently,minutely,hourly,alerts,flags]");
+        final Call<ForecastResponse> request = service.getForecast(Constants.API_KEY, location.getLatitude(), location.getLongitude(), "[currently,minutely,hourly,alerts,flags]");
         //noinspection NullableProblems
         request.enqueue(new Callback<ForecastResponse>() {
             @Override

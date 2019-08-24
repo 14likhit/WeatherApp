@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <TextView
                 android:id="@+id/latitude"
@@ -38,7 +38,7 @@
                 android:textSize="@dimen/twenty_four_sp_text_size" />
 
             <TextView
-                android:id="@+id/timezone"
+                android:id="@+id/date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -51,14 +51,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginLeft="@dimen/sixteen_dp_margin"
                 android:layout_marginTop="@dimen/sixteen_dp_margin"
+                android:layout_marginRight="@dimen/sixteen_dp_margin"
                 android:textColor="@android:color/white"
                 android:textSize="@dimen/sixteen_sp_text_size" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/twenty_four_dp_margin"
+                android:layout_marginTop="12dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
@@ -108,7 +110,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/twenty_four_dp_margin"
+                android:layout_marginTop="12dp"
                 android:baselineAligned="false"
                 android:orientation="horizontal">
 
@@ -215,24 +217,121 @@
             </LinearLayout>
 
             <RelativeLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="@dimen/sixteen_dp_margin"
-                android:layout_marginRight="@dimen/sixteen_dp_margin"
-                android:layout_marginBottom="@dimen/sixteen_dp_margin">
+                android:layout_margin="8dp">
 
-                <TextView
-                    android:id="@+id/last_updated_time"
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/day_1"
+                    style="@style/Widget.AppCompat.Button.Colored"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentLeft="true"
                     android:layout_gravity="bottom"
-                    android:text="Last Updated : 1 hours ago"
+                    android:text="25/08/2019"
                     android:textColor="@android:color/white"
-                    android:textSize="@dimen/tweleve_sp_text_size" />
+                    android:textSize="@dimen/twenty_four_sp_text_size" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/day_2"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="bottom"
+                    android:text="26/08/2019"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/twenty_four_sp_text_size" />
+
             </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/day_3"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_gravity="bottom"
+                    android:text="27/08/2019"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/twenty_four_sp_text_size" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/day_4"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="bottom"
+                    android:text="28/08/2019"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/twenty_four_sp_text_size" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/day_5"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_gravity="bottom"
+                    android:text="29/08/2019"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/twenty_four_sp_text_size" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/day_6"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="bottom"
+                    android:text="30/08/2019"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/twenty_four_sp_text_size" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/day_7"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_gravity="bottom"
+                    android:text="31/08/2019"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/twenty_four_sp_text_size" />
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/day_8"
+                    style="@style/Widget.AppCompat.Button.Colored"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="bottom"
+                    android:text="01/09/2019"
+                    android:textColor="@android:color/white"
+                    android:textSize="@dimen/twenty_four_sp_text_size" />
+
+            </RelativeLayout>
+
         </LinearLayout>
 
         <ProgressBar

@@ -20,6 +20,7 @@ import com.uniqolabel.weatherapp.base.BaseFragment;
 import com.uniqolabel.weatherapp.data.model.ForecastResponse;
 import com.uniqolabel.weatherapp.databinding.FragmentMainBinding;
 import com.uniqolabel.weatherapp.utils.LocationHelper;
+import com.uniqolabel.weatherapp.utils.Utils;
 
 public class MainFragment extends BaseFragment implements MainContract.View {
 
@@ -84,8 +85,23 @@ public class MainFragment extends BaseFragment implements MainContract.View {
     public void onWeatherForecastReceived(ForecastResponse forecastResponse) {
         binding.latitude.setText(forecastResponse.getLatitude().toString());
         binding.longitude.setText(forecastResponse.getLongitude().toString());
-        binding.timezone.setText(forecastResponse.getTimezone());
+        binding.date.setText(Utils.getDate(forecastResponse.getDaily().getData().get(0).getTime(), forecastResponse.getTimezone()));
         binding.summary.setText(forecastResponse.getDaily().getSummary());
+        binding.mintemp.setText(forecastResponse.getDaily().getData().get(0).getTemperatureMin().toString());
+        binding.maxtemp.setText(forecastResponse.getDaily().getData().get(0).getTemperatureMax().toString());
+        binding.humidity.setText(forecastResponse.getDaily().getData().get(0).getHumidity().toString());
+        binding.pressure.setText(forecastResponse.getDaily().getData().get(0).getPressure().toString());
+        binding.sunrise.setText(Utils.getTime(forecastResponse.getDaily().getData().get(0).getSunriseTime(), forecastResponse.getTimezone()));
+        binding.sunset.setText(Utils.getTime(forecastResponse.getDaily().getData().get(0).getSunsetTime(), forecastResponse.getTimezone()));
+        binding.day1.setText(Utils.getDate(forecastResponse.getDaily().getData().get(0).getTime(), forecastResponse.getTimezone()));
+        binding.day2.setText(Utils.getDate(forecastResponse.getDaily().getData().get(1).getTime(), forecastResponse.getTimezone()));
+        binding.day3.setText(Utils.getDate(forecastResponse.getDaily().getData().get(2).getTime(), forecastResponse.getTimezone()));
+        binding.day4.setText(Utils.getDate(forecastResponse.getDaily().getData().get(3).getTime(), forecastResponse.getTimezone()));
+        binding.day5.setText(Utils.getDate(forecastResponse.getDaily().getData().get(4).getTime(), forecastResponse.getTimezone()));
+        binding.day6.setText(Utils.getDate(forecastResponse.getDaily().getData().get(5).getTime(), forecastResponse.getTimezone()));
+        binding.day7.setText(Utils.getDate(forecastResponse.getDaily().getData().get(6).getTime(), forecastResponse.getTimezone()));
+        binding.day8.setText(Utils.getDate(forecastResponse.getDaily().getData().get(7).getTime(), forecastResponse.getTimezone()));
         binding.rootContainer.setVisibility(View.VISIBLE);
     }
+
 }
