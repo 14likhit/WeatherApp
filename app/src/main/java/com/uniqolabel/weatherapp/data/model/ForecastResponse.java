@@ -4,59 +4,59 @@ import com.google.gson.annotations.SerializedName;
 
 public class ForecastResponse {
 
-    @SerializedName("cod")
-    private String cod;
+    @SerializedName("latitude")
+    private Double latitude;
 
-    @SerializedName("message")
-    private Integer message;
+    @SerializedName("longitude")
+    private Double longitude;
 
-    @SerializedName("city")
-    private City city;
+    @SerializedName("timezone")
+    private String timezone;
 
-    @SerializedName("cnt")
-    private Integer cnt;
+    @SerializedName("daily")
+    private DayForecast daily;
 
-    @SerializedName("list")
-    private java.util.List<DayForecast> list = null;
+    @SerializedName("offset")
+    private Double offset;
 
-    public String getCod() {
-        return cod;
+    public Double getLatitude() {
+        return latitude;
     }
 
-    public void setCod(String cod) {
-        this.cod = cod;
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
     }
 
-    public Integer getMessage() {
-        return message;
+    public Double getLongitude() {
+        return longitude;
     }
 
-    public void setMessage(Integer message) {
-        this.message = message;
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
     }
 
-    public City getCity() {
-        return city;
+    public String getTimezone() {
+        return timezone;
     }
 
-    public void setCity(City city) {
-        this.city = city;
+    public void setTimezone(String timezone) {
+        this.timezone = timezone;
     }
 
-    public Integer getCnt() {
-        return cnt;
+    public DayForecast getDaily() {
+        return daily;
     }
 
-    public void setCnt(Integer cnt) {
-        this.cnt = cnt;
+    public void setDaily(DayForecast daily) {
+        this.daily = daily;
     }
 
-    public java.util.List<DayForecast> getList() {
-        return list;
+    public Double getOffset() {
+        return offset;
     }
 
-    public void setList(java.util.List<DayForecast> list) {
-        this.list = list;
+    public void setOffset(Double offset) {
+        this.offset = offset;
     }
 
 }
