@@ -33,6 +33,8 @@ public class MainFragment extends BaseFragment implements MainContract.View {
     private Location location;
     private LocationHelper locationHelper;
 
+    private ForecastResponse forecastResponse;
+
     public static MainFragment newInstance() {
         return new MainFragment();
     }
@@ -80,19 +82,29 @@ public class MainFragment extends BaseFragment implements MainContract.View {
         });
     }
 
+    @Override
+    protected void initViews(View view) {
+        super.initViews(view);
+
+        binding.day1.setOnClickListener(v -> updateForecastUI(forecastResponse, 0));
+        binding.day2.setOnClickListener(v -> updateForecastUI(forecastResponse, 1));
+        binding.day3.setOnClickListener(v -> updateForecastUI(forecastResponse, 2));
+        binding.day4.setOnClickListener(v -> updateForecastUI(forecastResponse, 3));
+        binding.day5.setOnClickListener(v -> updateForecastUI(forecastResponse, 4));
+        binding.day6.setOnClickListener(v -> updateForecastUI(forecastResponse, 5));
+        binding.day7.setOnClickListener(v -> updateForecastUI(forecastResponse, 6));
+        binding.day8.setOnClickListener(v -> updateForecastUI(forecastResponse, 7));
+
+    }
+
     @SuppressLint("SetTextI18n")
     @Override
     public void onWeatherForecastReceived(ForecastResponse forecastResponse) {
+        this.forecastResponse = forecastResponse;
         binding.latitude.setText(forecastResponse.getLatitude().toString());
         binding.longitude.setText(forecastResponse.getLongitude().toString());
-        binding.date.setText(Utils.getDate(forecastResponse.getDaily().getData().get(0).getTime(), forecastResponse.getTimezone()));
         binding.summary.setText(forecastResponse.getDaily().getSummary());
-        binding.mintemp.setText(forecastResponse.getDaily().getData().get(0).getTemperatureMin().toString());
-        binding.maxtemp.setText(forecastResponse.getDaily().getData().get(0).getTemperatureMax().toString());
-        binding.humidity.setText(forecastResponse.getDaily().getData().get(0).getHumidity().toString());
-        binding.pressure.setText(forecastResponse.getDaily().getData().get(0).getPressure().toString());
-        binding.sunrise.setText(Utils.getTime(forecastResponse.getDaily().getData().get(0).getSunriseTime(), forecastResponse.getTimezone()));
-        binding.sunset.setText(Utils.getTime(forecastResponse.getDaily().getData().get(0).getSunsetTime(), forecastResponse.getTimezone()));
+        updateForecastUI(forecastResponse, 0);
         binding.day1.setText(Utils.getDate(forecastResponse.getDaily().getData().get(0).getTime(), forecastResponse.getTimezone()));
         binding.day2.setText(Utils.getDate(forecastResponse.getDaily().getData().get(1).getTime(), forecastResponse.getTimezone()));
         binding.day3.setText(Utils.getDate(forecastResponse.getDaily().getData().get(2).getTime(), forecastResponse.getTimezone()));
@@ -102,6 +114,19 @@ public class MainFragment extends BaseFragment implements MainContract.View {
         binding.day7.setText(Utils.getDate(forecastResponse.getDaily().getData().get(6).getTime(), forecastResponse.getTimezone()));
         binding.day8.setText(Utils.getDate(forecastResponse.getDaily().getData().get(7).getTime(), forecastResponse.getTimezone()));
         binding.rootContainer.setVisibility(View.VISIBLE);
+    }
+
+    @SuppressLint("SetTextI18n")
+    private void updateForecastUI(ForecastResponse forecastResponse, int day) {
+        binding.date.setText(Utils.getDate(forecastResponse.getDaily().getData().get(day).getTime(), forecastResponse.getTimezone()));
+        binding.temp.setText(forecastResponse.getDaily().getData().get(day).getSummary());
+        binding.mintemp.setText(forecastResponse.getDaily().getData().get(day).getTemperatureMin().toString());
+        binding.maxtemp.setText(forecastResponse.getDaily().getData().get(day).getTemperatureMax().toString());
+        binding.humidity.setText(forecastResponse.getDaily().getData().get(day).getHumidity().toString());
+        binding.pressure.setText(forecastResponse.getDaily().getData().get(day).getPressure().toString());
+        binding.sunrise.setText(Utils.getTime(forecastResponse.getDaily().getData().get(day).getSunriseTime(), forecastResponse.getTimezone()));
+        binding.sunset.setText(Utils.getTime(forecastResponse.getDaily().getData().get(day).getSunsetTime(), forecastResponse.getTimezone()));
+
     }
 
 }
