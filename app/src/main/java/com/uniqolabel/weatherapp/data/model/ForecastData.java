@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 public class ForecastData {
 
     @SerializedName("time")
-    private Integer time;
+    private Long time;
 
     @SerializedName("summary")
     private String summary;
@@ -14,10 +14,10 @@ public class ForecastData {
     private String icon;
 
     @SerializedName("sunriseTime")
-    private Integer sunriseTime;
+    private Long sunriseTime;
 
     @SerializedName("sunsetTime")
-    private Integer sunsetTime;
+    private Long sunsetTime;
 
     @SerializedName("moonPhase")
     private Double moonPhase;
@@ -29,7 +29,7 @@ public class ForecastData {
     private Double precipIntensityMax;
 
     @SerializedName("precipIntensityMaxTime")
-    private Integer precipIntensityMaxTime;
+    private Long precipIntensityMaxTime;
 
     @SerializedName("precipProbability")
     private Double precipProbability;
@@ -41,25 +41,25 @@ public class ForecastData {
     private Double temperatureHigh;
 
     @SerializedName("temperatureHighTime")
-    private Integer temperatureHighTime;
+    private Long temperatureHighTime;
 
     @SerializedName("temperatureLow")
     private Double temperatureLow;
 
     @SerializedName("temperatureLowTime")
-    private Integer temperatureLowTime;
+    private Long temperatureLowTime;
 
     @SerializedName("apparentTemperatureHigh")
     private Double apparentTemperatureHigh;
 
     @SerializedName("apparentTemperatureHighTime")
-    private Integer apparentTemperatureHighTime;
+    private Long apparentTemperatureHighTime;
 
     @SerializedName("apparentTemperatureLow")
     private Double apparentTemperatureLow;
 
     @SerializedName("apparentTemperatureLowTime")
-    private Integer apparentTemperatureLowTime;
+    private Long apparentTemperatureLowTime;
 
     @SerializedName("dewPoint")
     private Double dewPoint;
@@ -77,19 +77,19 @@ public class ForecastData {
     private Double windGust;
 
     @SerializedName("windGustTime")
-    private Integer windGustTime;
+    private Long windGustTime;
 
     @SerializedName("windBearing")
-    private Integer windBearing;
+    private Long windBearing;
 
     @SerializedName("cloudCover")
     private Double cloudCover;
 
     @SerializedName("uvIndex")
-    private Integer uvIndex;
+    private Long uvIndex;
 
     @SerializedName("uvIndexTime")
-    private Integer uvIndexTime;
+    private Long uvIndexTime;
 
     @SerializedName("visibility")
     private Double visibility;
@@ -101,31 +101,31 @@ public class ForecastData {
     private Double temperatureMin;
 
     @SerializedName("temperatureMinTime")
-    private Integer temperatureMinTime;
+    private Long temperatureMinTime;
 
     @SerializedName("temperatureMax")
     private Double temperatureMax;
 
     @SerializedName("temperatureMaxTime")
-    private Integer temperatureMaxTime;
+    private Long temperatureMaxTime;
 
     @SerializedName("apparentTemperatureMin")
     private Double apparentTemperatureMin;
 
     @SerializedName("apparentTemperatureMinTime")
-    private Integer apparentTemperatureMinTime;
+    private Long apparentTemperatureMinTime;
 
     @SerializedName("apparentTemperatureMax")
     private Double apparentTemperatureMax;
 
     @SerializedName("apparentTemperatureMaxTime")
-    private Integer apparentTemperatureMaxTime;
+    private Long apparentTemperatureMaxTime;
 
-    public Integer getTime() {
+    public Long getTime() {
         return time;
     }
 
-    public void setTime(Integer time) {
+    public void setTime(Long time) {
         this.time = time;
     }
 
@@ -145,19 +145,19 @@ public class ForecastData {
         this.icon = icon;
     }
 
-    public Integer getSunriseTime() {
+    public Long getSunriseTime() {
         return sunriseTime;
     }
 
-    public void setSunriseTime(Integer sunriseTime) {
+    public void setSunriseTime(Long sunriseTime) {
         this.sunriseTime = sunriseTime;
     }
 
-    public Integer getSunsetTime() {
+    public Long getSunsetTime() {
         return sunsetTime;
     }
 
-    public void setSunsetTime(Integer sunsetTime) {
+    public void setSunsetTime(Long sunsetTime) {
         this.sunsetTime = sunsetTime;
     }
 
@@ -185,11 +185,11 @@ public class ForecastData {
         this.precipIntensityMax = precipIntensityMax;
     }
 
-    public Integer getPrecipIntensityMaxTime() {
+    public Long getPrecipIntensityMaxTime() {
         return precipIntensityMaxTime;
     }
 
-    public void setPrecipIntensityMaxTime(Integer precipIntensityMaxTime) {
+    public void setPrecipIntensityMaxTime(Long precipIntensityMaxTime) {
         this.precipIntensityMaxTime = precipIntensityMaxTime;
     }
 
@@ -217,11 +217,11 @@ public class ForecastData {
         this.temperatureHigh = temperatureHigh;
     }
 
-    public Integer getTemperatureHighTime() {
+    public Long getTemperatureHighTime() {
         return temperatureHighTime;
     }
 
-    public void setTemperatureHighTime(Integer temperatureHighTime) {
+    public void setTemperatureHighTime(Long temperatureHighTime) {
         this.temperatureHighTime = temperatureHighTime;
     }
 
@@ -233,11 +233,11 @@ public class ForecastData {
         this.temperatureLow = temperatureLow;
     }
 
-    public Integer getTemperatureLowTime() {
+    public Long getTemperatureLowTime() {
         return temperatureLowTime;
     }
 
-    public void setTemperatureLowTime(Integer temperatureLowTime) {
+    public void setTemperatureLowTime(Long temperatureLowTime) {
         this.temperatureLowTime = temperatureLowTime;
     }
 
@@ -249,11 +249,11 @@ public class ForecastData {
         this.apparentTemperatureHigh = apparentTemperatureHigh;
     }
 
-    public Integer getApparentTemperatureHighTime() {
+    public Long getApparentTemperatureHighTime() {
         return apparentTemperatureHighTime;
     }
 
-    public void setApparentTemperatureHighTime(Integer apparentTemperatureHighTime) {
+    public void setApparentTemperatureHighTime(Long apparentTemperatureHighTime) {
         this.apparentTemperatureHighTime = apparentTemperatureHighTime;
     }
 
@@ -265,11 +265,11 @@ public class ForecastData {
         this.apparentTemperatureLow = apparentTemperatureLow;
     }
 
-    public Integer getApparentTemperatureLowTime() {
+    public Long getApparentTemperatureLowTime() {
         return apparentTemperatureLowTime;
     }
 
-    public void setApparentTemperatureLowTime(Integer apparentTemperatureLowTime) {
+    public void setApparentTemperatureLowTime(Long apparentTemperatureLowTime) {
         this.apparentTemperatureLowTime = apparentTemperatureLowTime;
     }
 
@@ -313,19 +313,19 @@ public class ForecastData {
         this.windGust = windGust;
     }
 
-    public Integer getWindGustTime() {
+    public Long getWindGustTime() {
         return windGustTime;
     }
 
-    public void setWindGustTime(Integer windGustTime) {
+    public void setWindGustTime(Long windGustTime) {
         this.windGustTime = windGustTime;
     }
 
-    public Integer getWindBearing() {
+    public Long getWindBearing() {
         return windBearing;
     }
 
-    public void setWindBearing(Integer windBearing) {
+    public void setWindBearing(Long windBearing) {
         this.windBearing = windBearing;
     }
 
@@ -337,19 +337,19 @@ public class ForecastData {
         this.cloudCover = cloudCover;
     }
 
-    public Integer getUvIndex() {
+    public Long getUvIndex() {
         return uvIndex;
     }
 
-    public void setUvIndex(Integer uvIndex) {
+    public void setUvIndex(Long uvIndex) {
         this.uvIndex = uvIndex;
     }
 
-    public Integer getUvIndexTime() {
+    public Long getUvIndexTime() {
         return uvIndexTime;
     }
 
-    public void setUvIndexTime(Integer uvIndexTime) {
+    public void setUvIndexTime(Long uvIndexTime) {
         this.uvIndexTime = uvIndexTime;
     }
 
@@ -377,11 +377,11 @@ public class ForecastData {
         this.temperatureMin = temperatureMin;
     }
 
-    public Integer getTemperatureMinTime() {
+    public Long getTemperatureMinTime() {
         return temperatureMinTime;
     }
 
-    public void setTemperatureMinTime(Integer temperatureMinTime) {
+    public void setTemperatureMinTime(Long temperatureMinTime) {
         this.temperatureMinTime = temperatureMinTime;
     }
 
@@ -393,11 +393,11 @@ public class ForecastData {
         this.temperatureMax = temperatureMax;
     }
 
-    public Integer getTemperatureMaxTime() {
+    public Long getTemperatureMaxTime() {
         return temperatureMaxTime;
     }
 
-    public void setTemperatureMaxTime(Integer temperatureMaxTime) {
+    public void setTemperatureMaxTime(Long temperatureMaxTime) {
         this.temperatureMaxTime = temperatureMaxTime;
     }
 
@@ -409,11 +409,11 @@ public class ForecastData {
         this.apparentTemperatureMin = apparentTemperatureMin;
     }
 
-    public Integer getApparentTemperatureMinTime() {
+    public Long getApparentTemperatureMinTime() {
         return apparentTemperatureMinTime;
     }
 
-    public void setApparentTemperatureMinTime(Integer apparentTemperatureMinTime) {
+    public void setApparentTemperatureMinTime(Long apparentTemperatureMinTime) {
         this.apparentTemperatureMinTime = apparentTemperatureMinTime;
     }
 
@@ -425,11 +425,11 @@ public class ForecastData {
         this.apparentTemperatureMax = apparentTemperatureMax;
     }
 
-    public Integer getApparentTemperatureMaxTime() {
+    public Long getApparentTemperatureMaxTime() {
         return apparentTemperatureMaxTime;
     }
 
-    public void setApparentTemperatureMaxTime(Integer apparentTemperatureMaxTime) {
+    public void setApparentTemperatureMaxTime(Long apparentTemperatureMaxTime) {
         this.apparentTemperatureMaxTime = apparentTemperatureMaxTime;
     }
 
